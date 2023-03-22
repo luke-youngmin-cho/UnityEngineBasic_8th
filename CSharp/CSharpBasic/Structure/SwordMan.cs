@@ -9,15 +9,15 @@ namespace Structure
     internal struct SwordMan
     {
         // 멤버 변수들
-        string _name;
-        int _lv;
+        public string Name;
+        public int Lv;
         float _exp;
         char _gender;
 
         // 멤버 함수들
-        void Slash()
+        public void Slash()
         {
-            Console.WriteLine($"{_name} 이(가) 베기를 시전했다");
+            Console.WriteLine($"{Name} 이(가) 베기를 시전했다");
         }
     }
 }

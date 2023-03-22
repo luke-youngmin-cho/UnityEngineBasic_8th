@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 // C# naming convention
 // 사용자정의 자료형의 이름 : PascalCase 
 // public, protected, internal 멤버 변수 : PascalCase 
@@ -12,7 +7,17 @@ using System.Threading.Tasks;
 // 함수 : PascalCase 
 
 
+// namespace
+// 이름으로 메모리 공간을 식별하기위한 키워드
+// 일반적인 namespace 작명 : 팀/회사 이름.기술스택이름.세부카테고리
 
+namespace ClassObjectInstance.UISystems.Characters
+{
+    internal class SwordMan
+    {
+
+    }
+}
 namespace ClassObjectInstance
 {
     // 클래스 
@@ -32,7 +37,7 @@ namespace ClassObjectInstance
         public int Lv;
         private float _exp;
         private char _gender;
-
+        
         // 클래스 생성자
         // 정의하지 않아도 default 생성자가 생략되어있음.
         // 해당 클래스타입의 객체를 힙영역에 할당하고 해당 객체의 참조를 반환
