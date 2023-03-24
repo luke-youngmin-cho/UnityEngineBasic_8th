@@ -35,9 +35,55 @@ namespace ClassObjectInstance
         // 멤버 변수들
         public string Name;
         public int Lv;
+        public int Hp { get; private set; }
+
+        public int Mp
+        {
+            get
+            {
+                return _mp;
+            }
+            private set
+            {
+                _mp = value;
+            }
+        }
+        private int _mp;
+
+        public float Exp
+        {
+            get
+            {
+                return _exp;
+            }
+            set
+            {
+                if (value > _expMax)
+                    value = _expMax;
+
+                _exp = value;
+            }
+        }
+
         private float _exp;
+        private float _expMax;
         private char _gender;
         
+        public void SetExp(float value)
+        {
+            if (value > _expMax)
+                value = _expMax;
+
+            _exp = value;
+        }
+
+        public float GetExp()
+        {
+            // + 현재 exp 에 오류없는지 한번 검출하는 기능 ..
+            return _exp;
+        }
+
+
         // 클래스 생성자
         // 정의하지 않아도 default 생성자가 생략되어있음.
         // 해당 클래스타입의 객체를 힙영역에 할당하고 해당 객체의 참조를 반환

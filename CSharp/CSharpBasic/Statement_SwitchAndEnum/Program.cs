@@ -50,7 +50,7 @@ PlayerState playerState = PlayerState.Idle;
 // 명시적 캐스팅 : 
 // R-Value 를 L-Value 에 대입하기위해서 형 변환을 해야하고, 그것을 명시하는것
 int tmp = (int)playerState;
-playerState = (PlayerState)0;
+playerState = (PlayerState)1;
 
 // 암시적 캐스팅 
 // R-Value 를 L-Value 에 대입하기위해서 별도로 형 변환을 하지 않아도 연산이 가능한 경우

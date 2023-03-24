@@ -15,6 +15,7 @@ int a = 3;
 // . 멤버접근연산자
 swordMan1.Name = "타락파워전사짱짱";
 swordMan1.Lv = 1;
+swordMan1.Exp = 1.0f;
 
 swordMan2.Name = "똠양꿍";
 swordMan2.Lv = 2;

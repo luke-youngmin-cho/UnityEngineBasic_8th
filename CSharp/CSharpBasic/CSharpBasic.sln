@@ -13,9 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Structure", "Structure\Stru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassObjectInstance", "ClassObjectInstance\ClassObjectInstance.csproj", "{0C9DA1CC-B6EC-48C6-973C-A0744777A5AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Statement_If", "Statement_If\Statement_If.csproj", "{22D41CFC-63F1-4A53-962E-80F1460BA0CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Statement_If", "Statement_If\Statement_If.csproj", "{22D41CFC-63F1-4A53-962E-80F1460BA0CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Statement_SwitchAndEnum", "Statement_SwitchAndEnum\Statement_SwitchAndEnum.csproj", "{4AC2A4F0-6E60-43B3-BD0C-C605FE712CEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Statement_SwitchAndEnum", "Statement_SwitchAndEnum\Statement_SwitchAndEnum.csproj", "{4AC2A4F0-6E60-43B3-BD0C-C605FE712CEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Statement_Loops", "Statement_Loops\Statement_Loops.csproj", "{5F3D80CB-598C-430A-9FC4-F58989900694}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Array1D", "Array1D\Array1D.csproj", "{ECF2F8A7-5D9F-47A1-AAA9-2B2D5A0281CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,14 @@ Global
 		{4AC2A4F0-6E60-43B3-BD0C-C605FE712CEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AC2A4F0-6E60-43B3-BD0C-C605FE712CEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AC2A4F0-6E60-43B3-BD0C-C605FE712CEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F3D80CB-598C-430A-9FC4-F58989900694}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F3D80CB-598C-430A-9FC4-F58989900694}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F3D80CB-598C-430A-9FC4-F58989900694}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F3D80CB-598C-430A-9FC4-F58989900694}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECF2F8A7-5D9F-47A1-AAA9-2B2D5A0281CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECF2F8A7-5D9F-47A1-AAA9-2B2D5A0281CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECF2F8A7-5D9F-47A1-AAA9-2B2D5A0281CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECF2F8A7-5D9F-47A1-AAA9-2B2D5A0281CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
