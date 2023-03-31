@@ -17,9 +17,15 @@ namespace Inheritance
         }
         private int _attackPower;
 
+        public Goblin(int hp, int attackPower)
+            : base(hp) // base 키워드 : 상위타입 참조
+        {
+            this._attackPower = attackPower;
+        }
+
         public void Attack(IDamageable target)
         {
-            target.Damage(_attackPower);
+            target.Damage(this, _attackPower);
         }
 
         protected override void Breath()
