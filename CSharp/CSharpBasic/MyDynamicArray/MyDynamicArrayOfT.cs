@@ -140,12 +140,52 @@ namespace Collections
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return new Enumerator(this);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return new Enumerator(this);
+        }
+
+        public struct Enumerator : IEnumerator<T>
+        {
+            public T Current => _current;
+
+            object IEnumerator.Current => _current;
+
+            private MyDynamicArray<T> _outer;
+            private int _currentIndex;
+            private T? _current; // nullable 연산자, null 대입 가능한것을 명시
+
+            public Enumerator(MyDynamicArray<T> outer)
+            {
+                _outer = outer;
+                _currentIndex = -1;
+                _current = default(T);
+            }
+
+            // 보통 관리되지 않는 힙영역의 메모리를 해제하거나 
+            // .NET CLR 의 Garbage Collector 가 알아서 수거하는걸 기다리지않고 직접 수거해가라고 명령할때 사용
+            public void Dispose()
+            {
+            }
+
+            public bool MoveNext()
+            {
+                if (_currentIndex >= _outer.Count - 1)
+                    return false;
+
+                _currentIndex++;
+                _current = _outer._data[_currentIndex];
+                return true;
+            }
+
+            public void Reset()
+            {
+                _currentIndex = -1;
+                _current = default(T);
+            }
         }
     }
 }
