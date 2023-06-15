@@ -92,6 +92,99 @@ namespace SortAlgorithms
 
         #endregion
 
+        #region Merge Sort
+        /// <summary>
+        /// 병합 정렬
+        /// Ω(NLogN)
+        /// θ(NLogN)
+        /// O(NLogN)
+        /// Stable
+        /// </summary>
+        /// <param name="arr"></param>
+        public static void MergeSort(int[] arr)
+        {
+            MergeSort(arr, 0, arr.Length - 1);
+        }
+
+        public static void MergeSort(int[] arr, int start, int end)
+        {
+            if (start < end)
+            {
+                int mid = end + (start - end) / 2 - 1; // == (start + end)/2, overflow 방지용
+                MergeSort(arr, start, mid);
+                MergeSort(arr, mid + 1, end);
+
+                Merge(arr, start, mid, end);
+            }
+        }
+
+        private static void Merge(int[] arr, int start, int mid, int end)
+        {
+            int[] origin = new int[end + 1];
+            for (int i = 0; i < end + 1; i++)
+                origin[i] = arr[i];
+
+            int part1 = start;
+            int part2 = mid + 1;
+            int tmp = start;
+
+            while (part1 <= mid && part2 <= end)
+            {
+                if (origin[part1] <= origin[part2])
+                {
+                    arr[tmp++] = origin[part1++];
+                }
+                else
+                {
+                    arr[tmp++] = origin[part2++];
+                }
+            }
+
+            // 남은 part1 들을 tmp 위치에 쭉 이어서 덮어쓴다.
+            for (int i = 0; i < mid - part1; i++)
+            {
+                arr[tmp + i] = origin[part1 + i];
+            }
+        }
+
+        #endregion
+
+
+        #region
+        public static void QuickSort(int[] arr)
+        {
+            QuickSort(arr, 0, arr.Length - 1);
+        }
+
+        public static void QuickSort(int[] arr, int start, int end)
+        {
+            if (start < end)
+            {
+                int pivot = Partition(arr, start, end);
+                QuickSort(arr, start, pivot - 1);
+                QuickSort(arr, pivot + 1, end);
+            }
+        }
+
+        private static int Partition(int[] arr, int start, int end)
+        {
+            int standard = arr[end + (start - end) / 2];
+
+            while (true)
+            {
+                while (arr[start] < standard) start++;
+                while (arr[end] > standard) end--;
+
+                if (start < end)
+                    Swap(ref arr[start], ref arr[end]);
+                else
+                    return end;
+            }
+        }
+
+
+        #endregion
+
         // ref 키워드 
         // 인자를 참조형태로 받을 때 사용
         private static void Swap(ref int a,ref int b)
