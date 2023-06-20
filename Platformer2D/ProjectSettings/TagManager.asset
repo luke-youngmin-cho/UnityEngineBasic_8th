@@ -13,18 +13,18 @@ TagManager:
   - UI
   - 
   - 
+  - Ground
+  - 
+  - 
+  - 
+  - PlayerTrigger
+  - PlayerCollision
   - 
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - EnemyTrigger
+  - EnemyCollision
   - 
   - 
   - 
@@ -50,11 +50,14 @@ TagManager:
   - name: Environment
     uniqueID: 2225569913
     locked: 0
+  - name: BackGroundProp
+    uniqueID: 2421384515
+    locked: 0
   - name: Ground
     uniqueID: 1967350781
     locked: 0
-  - name: BackGroundProp
-    uniqueID: 2421384515
+  - name: ForegroundProp
+    uniqueID: 2240679481
     locked: 0
   - name: Player
     uniqueID: 1727904727
