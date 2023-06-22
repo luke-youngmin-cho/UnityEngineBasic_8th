@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public abstract class Movement : MonoBehaviour
 {
     public bool isMovable;
     public bool isDirectionChangeable;
@@ -38,14 +39,44 @@ public class Movement : MonoBehaviour
                 return;
 
             _horizontal = value;
-            onHorizontalChanged(value);
+            //onHorizontalChanged(value); // 직접호출 - 등록된 함수를 호출할때마다 인자를 직접참조
+            //onHorizontalChanged.Invoke(value); // 간접호출 - Invoke의 매개변수에 인자 전달 후.. 등록된함수들은 Invoke 의 매개변수를 참조함
+            onHorizontalChanged?.Invoke(value); // null 체크 연산자 - null 이면 (등록된함수 없으면) 호출 x 
         }
     }
     private float _horizontal;
     public event Action<float> onHorizontalChanged;
+    private Rigidbody2D _rigidbody;
+    private Vector2 _move;
+    private float _speed = 1.0f;
 
-    private void Update()
+    private void Awake()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
+        _rigidbody = GetComponent<Rigidbody2D>();
+    }
+
+    protected virtual void Update()
+    {
+        if (isMovable)
+        {
+            _move = new Vector2(horizontal, 0.0f);
+        }
+        else
+        {
+            _move = Vector2.zero;
+        }
+
+        if (isDirectionChangeable)
+        {
+            if (_horizontal > 0)
+                direction = DIRECTION_RIGHT;
+            else if (_horizontal < 0)
+                direction = DIRECTION_LEFT;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        _rigidbody.position += _move * _speed * Time.fixedDeltaTime;
     }
 }

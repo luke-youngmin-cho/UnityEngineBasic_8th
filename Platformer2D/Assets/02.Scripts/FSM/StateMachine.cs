@@ -4,8 +4,8 @@ using System.Collections.Generic;
 public class StateMachine : MonoBehaviour
 {
     public StateType currentType;
-    public State current;
-    public Dictionary<StateType, State> states;
+    public IStateEnumerator<StateType> current;
+    public Dictionary<StateType, IStateEnumerator<StateType>> states;
 
     public bool ChangeState(StateType newType)
     {
@@ -23,18 +23,9 @@ public class StateMachine : MonoBehaviour
         ChangeState(current.MoveNext());
     }
 
-    private void Start()
+    public void InitStates(Dictionary<StateType, IStateEnumerator<StateType>> states)
     {
-        InitStates();
-    }
-
-    private void InitStates()
-    {
-        states = new Dictionary<StateType, State>()
-        {
-            { StateType.Idle, new StateIdle(this) },
-            { StateType.Move, new StateMove(this) },
-        };
+        this.states = states;
         current = states[currentType];
     }
 }
