@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 public interface IHp
 {
@@ -10,4 +11,7 @@ public interface IHp
     event Action<float> onHpIncreased;
     event Action onHpMin;
     event Action onHpMax;
+
+    public void Damage(GameObject damager, float amout);
+    public void Heal(GameObject healer, float amount);
 }

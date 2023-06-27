@@ -27,7 +27,7 @@ public abstract class State : IStateEnumerator<StateType>
     public State(StateMachine machine)
     {
         this.machine = machine;
-        this.animator = machine.GetComponent<Animator>();
+        this.animator = machine.GetComponentInChildren<Animator>();
         this.rigidBody = machine.GetComponent<Rigidbody2D>();
         this.collider = machine.GetComponent<CapsuleCollider2D>();
         this.transform = machine.GetComponent<Transform>();
