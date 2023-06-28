@@ -1,5 +1,6 @@
 ﻿public class StateHurt : State
 {
+    public override bool canExecute => machine.currentType != StateType.Attack;
     public StateHurt(StateMachine machine) : base(machine)
     {
     }
@@ -17,6 +18,8 @@
                 break;
             case IStateEnumerator<StateType>.Step.Start:
                 {
+                    movement.isMovable = false;
+                    movement.isDirectionChangeable = false;
                     animator.Play("Hurt");
                     currentStep++;
                 }
@@ -41,7 +44,7 @@
                 break;
             case IStateEnumerator<StateType>.Step.Finish:
                 {
-                    next = StateType.Idle;
+                    next = movement.horizontal == 0.0f ? StateType.Idle : StateType.Move;
                 }
                 break;
             default:

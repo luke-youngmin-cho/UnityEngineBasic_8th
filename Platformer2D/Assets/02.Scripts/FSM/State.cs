@@ -16,6 +16,8 @@ public enum StateType
 
 public abstract class State : IStateEnumerator<StateType>
 {
+    public abstract bool canExecute { get; }
+
     public IStateEnumerator<StateType>.Step current => currentStep;
     protected IStateEnumerator<StateType>.Step currentStep;
     protected StateMachine machine;
@@ -23,6 +25,7 @@ public abstract class State : IStateEnumerator<StateType>
     protected Rigidbody2D rigidBody;
     protected CapsuleCollider2D collider;
     protected Transform transform;
+    protected Movement movement;
 
     public State(StateMachine machine)
     {
@@ -31,6 +34,7 @@ public abstract class State : IStateEnumerator<StateType>
         this.rigidBody = machine.GetComponent<Rigidbody2D>();
         this.collider = machine.GetComponent<CapsuleCollider2D>();
         this.transform = machine.GetComponent<Transform>();
+        this.movement = machine.GetComponent<Movement>();
     }
 
     public abstract StateType MoveNext();

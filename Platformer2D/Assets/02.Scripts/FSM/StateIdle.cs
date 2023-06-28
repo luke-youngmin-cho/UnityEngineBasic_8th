@@ -1,8 +1,12 @@
 ﻿public class StateIdle : State
 {
+    public override bool canExecute => true;
+
+
     public StateIdle(StateMachine machine) : base(machine)
     {
     }
+
 
     public override StateType MoveNext()
     {
@@ -17,6 +21,8 @@
                 break;
             case IStateEnumerator<StateType>.Step.Start:
                 {
+                    movement.isMovable = true;
+                    movement.isDirectionChangeable = true;
                     animator.Play("Idle");
                     currentStep++;
                 }

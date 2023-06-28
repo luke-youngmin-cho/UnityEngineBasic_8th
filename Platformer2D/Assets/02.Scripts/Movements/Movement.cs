@@ -32,6 +32,9 @@ public abstract class Movement : MonoBehaviour
         get => _horizontal;
         set
         {
+            if (isMovable == false)
+                return;
+
             if (_horizontal == value)
                 return;
 
