@@ -3160,6 +3160,7 @@ GameObject:
   - component: {fileID: 2045924445}
   - component: {fileID: 2045924444}
   - component: {fileID: 2045924447}
+  - component: {fileID: 2045924448}
   m_Layer: 12
   m_Name: Warrior
   m_TagString: Untagged
@@ -3233,6 +3234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d95fa4f44ef6b574a9a580239f54dc1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpForce: 2.5
+  landDistance: 1
   _hpMax: 500
 --- !u!114 &2045924445
 MonoBehaviour:
@@ -3248,6 +3251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isMovable: 1
   isDirectionChangeable: 1
+  _horizontal: 0
   _speed: 1
 --- !u!114 &2045924446
 MonoBehaviour:
@@ -3324,6 +3328,24 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 519420031}
+--- !u!114 &2045924448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045924440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e09deb9178ced1a4f9fb849f11d7bdaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isDetected: 0
+  _castOffset: {x: 0, y: -0.01}
+  _castSize: {x: 0.08, y: 0.01}
+  _groundMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &2092319675
 GameObject:
   m_ObjectHideFlags: 0
@@ -3457,10 +3479,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5550266624126379120, guid: c525377b35eeb0543b6222d4672bc9c8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6305173755704705318, guid: c525377b35eeb0543b6222d4672bc9c8, type: 3}
-      propertyPath: _speed
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6491718388766131230, guid: c525377b35eeb0543b6222d4672bc9c8, type: 3}

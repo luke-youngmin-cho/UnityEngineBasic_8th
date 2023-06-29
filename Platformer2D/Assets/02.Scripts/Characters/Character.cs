@@ -4,6 +4,10 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour, IHp
 {
+    [Header("Stats")]
+    public float jumpForce = 2.5f;
+    public float landDistance = 1.0f;
+
     protected Movement movement;
     protected StateMachine stateMachine;
 

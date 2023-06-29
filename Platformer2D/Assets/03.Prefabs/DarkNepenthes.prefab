@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 6305173755704705319}
   - component: {fileID: 6305173755704705312}
   - component: {fileID: 1519955691055046436}
+  - component: {fileID: 634176793611074975}
   m_Layer: 18
   m_Name: DarkNepenthes
   m_TagString: Untagged
@@ -243,7 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isMovable: 0
   isDirectionChangeable: 1
-  _speed: 0.2
+  _speed: 0
 --- !u!114 &6305173755704705319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,6 +294,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8d44ee3712069d44a4a5dfa33dc9ad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpForce: 2.5
+  landDistance: 1
   _hpMax: 400
   _damage: 20
   _projectileDamage: 30
@@ -301,3 +304,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   _projectilePrefab: {fileID: 6212263050674656939, guid: fc93b1624cfd9364faa2d461ef8d061c, type: 3}
+--- !u!114 &634176793611074975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6491718388766131230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e09deb9178ced1a4f9fb849f11d7bdaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isDetected: 0
+  _castOffset: {x: 0, y: -0.01}
+  _castSize: {x: 0.08, y: 0.01}
+  _groundMask:
+    serializedVersion: 2
+    m_Bits: 256

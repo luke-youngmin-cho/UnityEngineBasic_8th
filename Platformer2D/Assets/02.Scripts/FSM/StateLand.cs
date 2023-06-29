@@ -1,17 +1,18 @@
-﻿public class StateIdle : State
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class StateLand : State
 {
     public override bool canExecute => true;
-    private GroundDetector _groundDetector;
 
-    public StateIdle(StateMachine machine) : base(machine)
+    public StateLand(StateMachine machine) : base(machine)
     {
-        _groundDetector = machine.GetComponent<GroundDetector>();
     }
-
 
     public override StateType MoveNext()
     {
-        StateType next = StateType.Idle;
+        StateType next = StateType.Land;
 
         switch (currentStep)
         {
@@ -22,9 +23,9 @@
                 break;
             case IStateEnumerator<StateType>.Step.Start:
                 {
-                    movement.isMovable = true;
+                    movement.isMovable = false;
                     movement.isDirectionChangeable = true;
-                    animator.Play("Idle");
+                    animator.Play("Land");
                     currentStep++;
                 }
                 break;
@@ -40,13 +41,16 @@
                 break;
             case IStateEnumerator<StateType>.Step.WaitUntilActionFinished:
                 {
-                    if (_groundDetector.isDetected == false)
+                    if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
                     {
-                        next = StateType.Fall;
+                        currentStep++;
                     }
                 }
                 break;
             case IStateEnumerator<StateType>.Step.Finish:
+                {
+                    next = movement.horizontal == 0.0f ? StateType.Idle : StateType.Move;
+                }
                 break;
             default:
                 break;

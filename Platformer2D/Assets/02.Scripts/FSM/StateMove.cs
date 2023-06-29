@@ -1,10 +1,11 @@
 ﻿public class StateMove : State
 {
     public override bool canExecute => true;
-
+    private GroundDetector _groundDetector;
 
     public StateMove(StateMachine machine) : base(machine)
     {
+        _groundDetector = machine.GetComponent<GroundDetector>();
     }
 
     public override StateType MoveNext()
@@ -38,7 +39,10 @@
                 break;
             case IStateEnumerator<StateType>.Step.WaitUntilActionFinished:
                 {
-                    // looping...
+                    if (_groundDetector.isDetected == false)
+                    {
+                        next = StateType.Fall;
+                    }
                 }
                 break;
             case IStateEnumerator<StateType>.Step.Finish:

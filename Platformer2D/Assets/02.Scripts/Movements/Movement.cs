@@ -13,6 +13,12 @@ public abstract class Movement : MonoBehaviour
         get => _direction;
         set
         {
+            if (isDirectionChangeable == false)
+                return;
+
+            if (_direction == value)
+                return;
+
             if (value < 0)
             {
                 transform.eulerAngles = new Vector3(0.0f, 180.0f, 0.0f);
@@ -44,7 +50,7 @@ public abstract class Movement : MonoBehaviour
             onHorizontalChanged?.Invoke(value); // null 체크 연산자 - null 이면 (등록된함수 없으면) 호출 x 
         }
     }
-    private float _horizontal;
+    [SerializeField] private float _horizontal;
     public event Action<float> onHorizontalChanged;
     private Rigidbody2D _rigidbody;
     private Vector2 _move;
@@ -60,18 +66,6 @@ public abstract class Movement : MonoBehaviour
         if (isMovable)
         {
             _move = new Vector2(horizontal, 0.0f);
-        }
-        else
-        {
-            _move = Vector2.zero;
-        }
-
-        if (isDirectionChangeable)
-        {
-            if (_horizontal > 0)
-                direction = DIRECTION_RIGHT;
-            else if (_horizontal < 0)
-                direction = DIRECTION_LEFT;
         }
     }
 

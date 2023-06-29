@@ -22,6 +22,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Vertical",
+                    "type": "Value",
+                    "id": "aef5cb5f-1d18-4067-9c03-741842f4492b",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "2786ead9-9470-46a9-b320-a586c2c7f2a7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -48,6 +66,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "negative",
+                    "id": "ab488d0f-de7c-45e8-927a-a18d60c11296",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Horizontal",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "positive",
                     "id": "9294f3a4-c965-465b-89d6-ab96e308b50b",
                     "path": "<Keyboard>/rightArrow",
@@ -59,15 +88,48 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "negative",
-                    "id": "ab488d0f-de7c-45e8-927a-a18d60c11296",
-                    "path": "<Keyboard>/leftArrow",
+                    "name": "1D Axis",
+                    "id": "30d1b43b-5199-489e-a5a4-8507aae13be5",
+                    "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Horizontal",
+                    "action": "Vertical",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "c386fd7c-6f98-4e3c-b452-8a86591b76ac",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Vertical",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "ec94df12-f273-4093-a9f0-17ee5e9b8bf4",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Vertical",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "789f6938-9f5a-43cf-8e3e-8d3f7f17d88e",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
