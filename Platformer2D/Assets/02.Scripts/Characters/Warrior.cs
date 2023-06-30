@@ -14,6 +14,8 @@ public class Warrior : Player
             { StateType.Jump, new StateJump(stateMachine) },
             { StateType.Fall, new StateFall(stateMachine) },
             { StateType.Land, new StateLand(stateMachine) },
+            { StateType.Crouch, new StateCrouch(stateMachine) },
+            { StateType.StandUp, new StateStandUp(stateMachine) },
             { StateType.Attack, new StateAttack(stateMachine) },
             { StateType.Hurt, new StateHurt(stateMachine) },
             { StateType.Die,  new StateDie(stateMachine) },

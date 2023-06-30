@@ -61,7 +61,7 @@ public abstract class Character : MonoBehaviour, IHp
     public event Action onHpMin;
     public event Action onHpMax;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         movement = GetComponent<Movement>();
         stateMachine = GetComponent<StateMachine>();
