@@ -10,6 +10,7 @@ public enum StateType
     Idle,
     Move,
     Jump,
+    DownJump,
     Fall,
     Land,
     Crouch,
@@ -38,7 +39,7 @@ public abstract class State : IStateEnumerator<StateType>
         this.machine = machine;
         this.animator = machine.GetComponentInChildren<Animator>();
         this.rigidBody = machine.GetComponent<Rigidbody2D>();
-        this.collider = machine.GetComponent<CapsuleCollider2D>();
+        this.collider = machine.GetComponentsInChildren<CapsuleCollider2D>().Where(c => c.isTrigger == false).First();
         this.transform = machine.GetComponent<Transform>();
         this.movement = machine.GetComponent<Movement>();
         this.character = machine.GetComponent<Character>();

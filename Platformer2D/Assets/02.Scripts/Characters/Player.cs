@@ -25,10 +25,6 @@ public class Player : Character
         stateMachine.ChangeState(StateType.Attack);
     }
 
-    public void OnJump()
-    {
-        stateMachine.ChangeState(StateType.Jump);
-    }
 
     protected override void Awake()
     {
@@ -37,6 +33,10 @@ public class Player : Character
         InputAction crouchAction = playerInput.currentActionMap.FindAction("Crouch");
         crouchAction.performed += ctx => stateMachine.ChangeState(StateType.Crouch);
         crouchAction.canceled  += ctx => stateMachine.ChangeState(StateType.StandUp);
+
+        InputAction jumpAction = playerInput.currentActionMap.FindAction("Jump");
+        jumpAction.performed += ctx 
+            => stateMachine.ChangeState(stateMachine.currentType == StateType.Crouch ? StateType.DownJump : StateType.Jump);
     }
 
     private void Update()
