@@ -35,6 +35,7 @@ public class GroundDetector : MonoBehaviour
     [SerializeField] private float _belowCastDistance = 3.0f;
 
     [SerializeField] private bool _isGroundExistBelow;
+    private WaitForSeconds _wait1of10Sec;
 
     public bool IsGroundExistBelow()
     {
@@ -64,7 +65,7 @@ public class GroundDetector : MonoBehaviour
         _ignorings.Add(ground);
         Physics2D.IgnoreCollision(collider, ground, true);
         Debug.Log($"Wait until passed {ground}");
-        yield return new WaitForSeconds(0.1f);
+        yield return _wait1of10Sec;
         yield return new WaitUntil(() =>
         {
             Collider2D[] cols =
@@ -99,6 +100,11 @@ public class GroundDetector : MonoBehaviour
         Debug.Log($"Stop ignore {ground}");
         Physics2D.IgnoreCollision(collider, ground, false);
         _ignorings.Remove(ground);
+    }
+
+    private void Awake()
+    {
+        _wait1of10Sec = new WaitForSeconds(0.1f);    
     }
 
     private void FixedUpdate()
