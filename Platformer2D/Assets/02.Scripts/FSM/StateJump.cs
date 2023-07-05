@@ -30,6 +30,7 @@ public class StateJump : State
                     movement.isMovable = false;
                     movement.isDirectionChangeable = true;
                     animator.Play("Jump");
+                    rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0.0f);
                     rigidBody.AddForce(Vector2.up * character.jumpForce, ForceMode2D.Impulse);
                     currentStep++;
                 }

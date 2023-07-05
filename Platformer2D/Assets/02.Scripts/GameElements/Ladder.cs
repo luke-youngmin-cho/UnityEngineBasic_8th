@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Ladder : MonoBehaviour
 {
+    public Vector2 ladderTopPos => (Vector2)transform.position +
+                                   Vector2.up * _bound.size.y / 2.0f;
+
     public Vector2 ladderUpStartPos => (Vector2)transform.position +
                                         Vector2.down * _bound.size.y / 2.0f +
                                         Vector2.up * _ladderUpStartOffsetY;

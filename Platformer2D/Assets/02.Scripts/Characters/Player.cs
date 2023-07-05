@@ -30,13 +30,22 @@ public class Player : Character
     {
         base.Awake();
         playerInput = GetComponent<PlayerInput>();
-        InputAction crouchAction = playerInput.currentActionMap.FindAction("Crouch");
-        crouchAction.performed += ctx => stateMachine.ChangeState(StateType.Crouch);
-        crouchAction.canceled  += ctx => stateMachine.ChangeState(StateType.StandUp);
 
         InputAction jumpAction = playerInput.currentActionMap.FindAction("Jump");
         jumpAction.performed += ctx 
             => stateMachine.ChangeState(stateMachine.currentType == StateType.Crouch ? StateType.DownJump : StateType.Jump);
+
+        InputAction upAction = playerInput.currentActionMap.FindAction("Up");
+        upAction.performed += ctx => stateMachine.ChangeState(StateType.LadderUp);
+
+        InputAction downAction = playerInput.currentActionMap.FindAction("Down");
+        downAction.performed += ctx =>
+        {
+            if (stateMachine.ChangeState(StateType.LadderDown)) { }
+            else if (stateMachine.ChangeState(StateType.Crouch)){ }
+        };
+        downAction.canceled += ctx => stateMachine.ChangeState(StateType.StandUp);
+
     }
 
     private void Update()

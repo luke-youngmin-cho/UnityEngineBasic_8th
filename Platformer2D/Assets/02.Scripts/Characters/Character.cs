@@ -8,6 +8,7 @@ public abstract class Character : MonoBehaviour, IHp
     public float jumpForce = 2.5f;
     public float downJumpForce = 1.0f;
     public float landDistance = 1.0f;
+    public float ladderMoveSpeed = 1.0f;
 
     protected Movement movement;
     protected StateMachine stateMachine;
