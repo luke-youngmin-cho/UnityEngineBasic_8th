@@ -16,14 +16,14 @@ public class StateDie : State
         {
             case IStateEnumerator<StateType>.Step.None:
                 {
+                    movement.isMovable = false;
+                    movement.isDirectionChangeable = false;
+                    animator.Play("Die");
                     currentStep++;
                 }
                 break;
             case IStateEnumerator<StateType>.Step.Start:
                 {
-                    movement.isMovable = false;
-                    movement.isDirectionChangeable = false;
-                    animator.Play("Die");
                     currentStep++;
                 }
                 break;

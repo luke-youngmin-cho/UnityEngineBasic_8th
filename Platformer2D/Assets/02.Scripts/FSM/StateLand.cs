@@ -18,14 +18,14 @@ public class StateLand : State
         {
             case IStateEnumerator<StateType>.Step.None:
                 {
+                    movement.isMovable = false;
+                    movement.isDirectionChangeable = true;
+                    animator.Play("Land");
                     currentStep++;
                 }
                 break;
             case IStateEnumerator<StateType>.Step.Start:
                 {
-                    movement.isMovable = false;
-                    movement.isDirectionChangeable = true;
-                    animator.Play("Land");
                     currentStep++;
                 }
                 break;

@@ -100,4 +100,9 @@ public class InputManager : SingletonMonoBase<InputManager>
             // Alert some notification that mapName has already been registered.
         }
     }
+
+    private void Update()
+    {
+        current.InvokeAll();
+    }
 }

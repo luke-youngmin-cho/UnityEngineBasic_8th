@@ -18,6 +18,7 @@ public class StateMachine : MonoBehaviour
         states[currentType].Reset();
         current = states[newType];
         currentType = newType;
+        current.MoveNext();
         return true;
     }
 

@@ -22,16 +22,16 @@ public class StateDownJump : State
         {
             case IStateEnumerator<StateType>.Step.None:
                 {
-                    currentStep++;
-                }
-                break;
-            case IStateEnumerator<StateType>.Step.Start:
-                {
                     movement.isMovable = false;
                     movement.isDirectionChangeable = true;
                     animator.Play("Jump");
                     rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0.0f);
                     rigidBody.AddForce(Vector2.up * character.downJumpForce, ForceMode2D.Impulse);
+                    currentStep++;
+                }
+                break;
+            case IStateEnumerator<StateType>.Step.Start:
+                {
                     currentStep++;
                 }
                 break;
