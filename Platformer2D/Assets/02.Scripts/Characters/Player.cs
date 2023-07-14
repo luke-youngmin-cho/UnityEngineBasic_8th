@@ -7,13 +7,16 @@ using UnityEngine.InputSystem;
 
 public class Player : Character
 {
+    public static Player instance;
     private PlayerInput playerInput;
 
+    public float attackForce => _attackForce;
+    [SerializeField] private float _attackForce = 10.0f;
 
     protected override void Awake()
     {
         base.Awake();
-
+        instance = this;
         InputManager.Map map = new InputManager.Map();
         map.AddRawAxisAction("Horizontal", (value) =>
         {
@@ -53,5 +56,4 @@ public class Player : Character
        //downAction.canceled += ctx => stateMachine.ChangeState(StateType.StandUp);
 
     }
-
 }

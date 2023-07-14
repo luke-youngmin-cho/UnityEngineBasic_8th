@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: pixelfont SDF Outline
+  m_Name: DamagePopUp_Player
   m_EditorClassIdentifier: 
-  hashCode: -239076150
+  hashCode: 283033133
   material: {fileID: 5520807053795812369}
-  materialHashCode: -738616918
+  materialHashCode: 1115436269
   m_Version: 1.1.0
   m_SourceFontFileGUID: b6349d08a5335cd4aa534282435d11cc
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: b6349d08a5335cd4aa534282435d11cc, type: 3}
@@ -693,7 +693,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: pixelfont Atlas Material
   m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - GLOW_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -740,9 +741,9 @@ Material:
     - _FaceDilate: 0.3
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
-    - _GlowInner: 0.83
-    - _GlowOffset: 0
-    - _GlowOuter: 0.76
+    - _GlowInner: 0.668
+    - _GlowOffset: 0.67
+    - _GlowOuter: 0.8
     - _GlowPower: 0.96
     - _GradientScale: 10
     - _LightAngle: 4.93
@@ -755,7 +756,7 @@ Material:
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.9
-    - _ScaleRatioB: 0.46124998
+    - _ScaleRatioB: 0.31377548
     - _ScaleRatioC: 0.46124998
     - _ScaleX: 1
     - _ScaleY: 1
@@ -781,9 +782,9 @@ Material:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
     - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GlowColor: {r: 0, g: 1, b: 0, a: 0.5}
+    - _GlowColor: {r: 0.30245635, g: 0.4833751, b: 0.9056604, a: 0.5}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 0.06555712, g: 0.079124175, b: 0.2735849, a: 1}
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
