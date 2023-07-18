@@ -85,8 +85,10 @@ public class InputManager : SingletonMonoBase<InputManager>
         }
     }
 
+    public bool enabledCurrent { get; set; }
     public Dictionary<string, Map> maps = new Dictionary<string, Map>();
     public Map current;
+    public Map global;
 
     public void AddMap(string mapName, Map map)
     {
@@ -101,8 +103,17 @@ public class InputManager : SingletonMonoBase<InputManager>
         }
     }
 
+    private void Awake()
+    {
+        global = new Map();
+        enabledCurrent = true;
+    }
+
     private void Update()
     {
-        current.InvokeAll();
+        global.InvokeAll();
+
+        if (enabledCurrent)
+            current.InvokeAll();
     }
 }

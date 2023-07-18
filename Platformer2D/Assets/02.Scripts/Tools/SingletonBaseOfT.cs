@@ -4,20 +4,27 @@ using System.Reflection; // 런타임중에 어셈블리 등의 코드에 접근
 public class SingletonBase<T> 
     where T : SingletonBase<T>
 {
+    private static readonly object _spinLock = new object();
     public static T instance
     {
         get
         {
             if (_instance == null)
             {
-                //ConstructorInfo constructorInfo = typeof(T).GetConstructor(new Type[] { });
-                //_instance = constructorInfo.Invoke(new object[] { }) as T;
+                lock (_spinLock)
+                {
+                    //ConstructorInfo constructorInfo = typeof(T).GetConstructor(new Type[] { });
+                    //_instance = constructorInfo.Invoke(new object[] { }) as T;
 
-                _instance = Activator.CreateInstance<T>();
+                    _instance = Activator.CreateInstance<T>();
+                    _instance.Init();
+                }
             }
             
             return _instance;
         }
     }
     private static T _instance;
+
+    protected virtual void Init() { }
 }
