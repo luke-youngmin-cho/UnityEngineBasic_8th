@@ -16,12 +16,20 @@ namespace RPG.Collections
             set => Change(index, value);
         }
 
+        public int Count => _items.Count;
+
         public event Action<int, T> onItemChanged;
         public event Action<int, T> onItemAdded;
         public event Action<int, T> onItemRemoved;
         public event Action onCollectionChanged;
 
         private List<T> _items = new List<T>();
+
+        public ObservableCollection() { }
+        public ObservableCollection(IEnumerable<T> copy)
+        {
+            _items = new List<T>(copy);
+        }
 
         public void Change(int index, T item)
         {
