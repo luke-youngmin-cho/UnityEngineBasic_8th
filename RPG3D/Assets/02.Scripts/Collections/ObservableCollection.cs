@@ -38,6 +38,16 @@ namespace RPG.Collections
             onCollectionChanged?.Invoke();
         }
 
+        public void Swap(int index1, int index2)
+        {
+            if (index1 >= Count || index1 < 0 || index2 >= Count || index2 < 0)
+                throw new IndexOutOfRangeException();
+
+            T item2 = _items[index2];
+            Change(index2, _items[index1]);
+            Change(index1, item2);
+        }
+
         public void Add(T item)
         {
             _items.Add(item);
