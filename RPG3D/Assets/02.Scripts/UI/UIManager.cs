@@ -41,6 +41,11 @@ namespace RPG.UI
             ui.sortingOrder = sortingOrder;
         }
 
+        public void Pop(IUI ui)
+        {
+            uisShown.Remove(ui);
+        }
+
         public void HideLast()
         {
             if (uisShown.Count <= 0)
