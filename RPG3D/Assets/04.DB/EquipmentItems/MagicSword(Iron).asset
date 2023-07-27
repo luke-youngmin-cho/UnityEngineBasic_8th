@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33e829d7a8d4b2848b239d2b40e16b25, type: 3}
-  m_Name: Sword
+  m_Name: MagicSword(Iron)
   m_EditorClassIdentifier: 
-  id: 1
+  id: 1002
   numMax: 1
-  icon: {fileID: 0}
-  description: Sample sword
+  icon: {fileID: 21300000, guid: f6d2e80783a625246ad1f8ec4b4b0c4e, type: 3}
+  description: This sword is so scary.
+  model: {fileID: 1014989259798498, guid: 8fc40ebf5a41b30428929f5ba3697759, type: 3}
