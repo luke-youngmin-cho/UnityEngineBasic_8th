@@ -19,6 +19,7 @@ namespace RPG.Data
         private Dictionary<DataCategory, IDataModel> _dataModelsByCategory;
 
         public bool TryGet<T>(out T dataModel)
+            where T : IDataModel
         {
             if (_dataModelsByType.TryGetValue(typeof(T), out IDataModel result))
             {
@@ -42,9 +43,34 @@ namespace RPG.Data
             if (_dataModelsByType.ContainsKey(typeof(T)))
                 throw new Exception($"[DataModelManager] : Failed to register. {typeof(T)} is already exist. ");
 
-            T dataModel = Activator.CreateInstance<T>();
+            T dataModel = Load<T>();
             _dataModelsByType.Add(typeof(T), dataModel);
             _dataModelsByCategory.Add(category, dataModel);
+        }
+
+        public T Load<T>()
+             where T : IDataModel
+        {
+            string dataPath = $"{Application.persistentDataPath}/{typeof(T).Name}.json";
+
+            T data;
+            if (System.IO.File.Exists(dataPath))
+            {
+                data = JsonUtility.FromJson<T>(System.IO.File.ReadAllText(dataPath));
+            }
+            else
+            {
+                data = (T)Activator.CreateInstance<T>().ResetWithDefaults();
+                System.IO.File.WriteAllText(dataPath, JsonUtility.ToJson(data));
+            }
+
+            return data;
+        }
+
+        public void Save<T>()
+        {
+            string dataPath = $"{Application.persistentDataPath}/{typeof(T).Name}.json";
+            System.IO.File.WriteAllText(dataPath, JsonUtility.ToJson(_dataModelsByType[typeof(T)]));
         }
 
         protected override void Init()

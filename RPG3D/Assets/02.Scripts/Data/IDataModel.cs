@@ -7,6 +7,8 @@ namespace RPG.Data
     public interface IDataModel
     {
         int id { get; set; }
+
+        IDataModel ResetWithDefaults();
     }
 }
 

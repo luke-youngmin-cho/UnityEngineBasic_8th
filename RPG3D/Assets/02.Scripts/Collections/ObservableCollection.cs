@@ -8,32 +8,43 @@ using Unity.VisualScripting;
 
 namespace RPG.Collections
 {
+    [Serializable]
     public class ObservableCollection<T> : INotifyCollectionChanged<T>, IEnumerable<T>
     {
         public T this[int index]
         {
-            get => _items[index];
+            get => items[index];
             set => Change(index, value);
         }
 
-        public int Count => _items.Count;
+        public int Count => items.Count;
 
         public event Action<int, T> onItemChanged;
         public event Action<int, T> onItemAdded;
         public event Action<int, T> onItemRemoved;
         public event Action onCollectionChanged;
 
-        private List<T> _items = new List<T>();
+        public List<T> items = new List<T>();
 
         public ObservableCollection() { }
+
+        public ObservableCollection(int count)
+        {
+            items = new List<T>();
+            for (int i = 0; i < count; i++)
+            {
+                items.Add(default(T));
+            }
+        }
+
         public ObservableCollection(IEnumerable<T> copy)
         {
-            _items = new List<T>(copy);
+            items = new List<T>(copy);
         }
 
         public void Change(int index, T item)
         {
-            _items[index] = item;
+            items[index] = item;
             onItemChanged?.Invoke(index, item);
             onCollectionChanged?.Invoke();
         }
@@ -43,21 +54,21 @@ namespace RPG.Collections
             if (index1 >= Count || index1 < 0 || index2 >= Count || index2 < 0)
                 throw new IndexOutOfRangeException();
 
-            T item2 = _items[index2];
-            Change(index2, _items[index1]);
+            T item2 = items[index2];
+            Change(index2, items[index1]);
             Change(index1, item2);
         }
 
         public void Add(T item)
         {
-            _items.Add(item);
-            onItemAdded?.Invoke(_items.Count - 1, item);
+            items.Add(item);
+            onItemAdded?.Invoke(items.Count - 1, item);
             onCollectionChanged?.Invoke();
         }
 
         public bool Remove(T item)
         {
-            int index = _items.IndexOf(item);
+            int index = items.IndexOf(item);
             if (index < 0)
                 return false;
 
@@ -67,20 +78,20 @@ namespace RPG.Collections
 
         public void RemoveAt(int index)
         {
-            T tmp = _items[index];
-            _items.RemoveAt(index);
+            T tmp = items[index];
+            items.RemoveAt(index);
             onItemRemoved?.Invoke(index, tmp);
             onCollectionChanged?.Invoke();
         }
 
         public IEnumerator<T> GetEnumerator()
         {
-            return _items.GetEnumerator();
+            return items.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return _items.GetEnumerator();
+            return items.GetEnumerator();
         }
     }
 }

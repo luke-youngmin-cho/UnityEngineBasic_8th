@@ -11,10 +11,12 @@ namespace RPG.Data
         ETC,
     }
 
+    [Serializable]
     public class InventoryData : IDataModel
     {
         public int id { get; set; }
 
+        [Serializable]
         public abstract class ItemSlotData : IComparable<ItemSlotData>
         {
             public int itemID;
@@ -34,6 +36,7 @@ namespace RPG.Data
             }
         }
 
+        [Serializable]
         public class EquipmentSlotData : ItemSlotData
         {
             public int enhanceLevel;
@@ -53,11 +56,13 @@ namespace RPG.Data
             }
         }
 
+        [Serializable]
         public class SpendSlotData : ItemSlotData
         {
 
         }
 
+        [Serializable]
         public class ETCSlotData : ItemSlotData
         {
 
@@ -66,5 +71,13 @@ namespace RPG.Data
         public ObservableCollection<EquipmentSlotData> equipmentSlotDatum;
         public ObservableCollection<SpendSlotData> spendSlotDatum;
         public ObservableCollection<ETCSlotData> etcSlotDatum;
+
+        public IDataModel ResetWithDefaults()
+        {
+            equipmentSlotDatum = new ObservableCollection<EquipmentSlotData>(40);
+            spendSlotDatum = new ObservableCollection<SpendSlotData>(40);
+            etcSlotDatum = new ObservableCollection<ETCSlotData>(40);
+            return this;
+        }
     }
 }
