@@ -9,7 +9,8 @@ namespace RPG.UI
 {
     public class InventorySlot : MonoBehaviour
     {
-        public int slotIndex;
+        [HideInInspector] public ItemType itemType;
+        [HideInInspector] public int slotIndex;
         [SerializeField] private Image _icon;
         [SerializeField] private TMP_Text _num;
 

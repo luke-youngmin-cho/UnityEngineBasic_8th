@@ -32,10 +32,11 @@ namespace RPG.UI
 
         public void Push(IUI ui)
         {
-            if (uisShown.Last.Value == ui)
+            if (uisShown.Count > 0 &&
+                uisShown.Last.Value == ui)
                 return;
 
-            int sortingOrder = uis.Count > 1 ? uisShown.Last.Value.sortingOrder : 0;
+            int sortingOrder = uis.Count > 1 ? (uisShown.Last?.Value.sortingOrder ?? 0) : 0;
             uisShown.Remove(ui);
             uisShown.AddLast(ui);
             ui.sortingOrder = sortingOrder;

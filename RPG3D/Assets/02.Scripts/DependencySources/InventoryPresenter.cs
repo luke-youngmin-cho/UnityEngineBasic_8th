@@ -14,6 +14,22 @@ namespace RPG.DependencySources
             public ObservableCollection<InventoryData.SpendSlotData> spendSlotDatum;
             public ObservableCollection<InventoryData.ETCSlotData> etcSlotDatum;
 
+            public InventoryData.ItemSlotData GetSlotData(ItemType itemType, int slotIndex)
+            {
+                switch (itemType)
+                {
+                    case ItemType.Equipment:
+                        return equipmentSlotDatum[slotIndex];
+                    case ItemType.Spend:
+                        return spendSlotDatum[slotIndex];
+                    case ItemType.ETC:
+                        return etcSlotDatum[slotIndex];
+                    default:
+                        throw new Exception("[InventoryPresenter.InventorySource] : Wrong item type");
+                }
+            }
+
+
             public InventorySource()
             {
                 if (DataModelManager.instance.TryGet(out InventoryData source))

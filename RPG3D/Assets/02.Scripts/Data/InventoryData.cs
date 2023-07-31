@@ -19,6 +19,8 @@ namespace RPG.Data
         [Serializable]
         public abstract class ItemSlotData : IComparable<ItemSlotData>
         {
+            public bool isEmpty => itemNum <= 0;
+
             public int itemID;
             public int itemNum;
 
