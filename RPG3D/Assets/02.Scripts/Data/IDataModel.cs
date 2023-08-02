@@ -9,6 +9,7 @@ namespace RPG.Data
         int id { get; set; }
 
         IDataModel ResetWithDefaults();
+        void Init();
     }
 }
 

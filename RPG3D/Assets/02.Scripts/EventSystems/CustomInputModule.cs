@@ -6,13 +6,21 @@ namespace RPG.EventSystems
 {
     public class CustomInputModule : StandaloneInputModule
     {
+        public static CustomInputModule main;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            main = this;
+        }
+
         public bool TryGetHovered<T, K>(out K hovered, int mouseID = kMouseLeftId)
             where T : BaseRaycaster
         {
             if (m_PointerData.TryGetValue(mouseID, out PointerEventData pointerEventData))
             {
                 BaseRaycaster module = pointerEventData.pointerCurrentRaycast.module;
-                if (module &&
+                if (module != null &&
                     module is T)
                 {
                     foreach (var item in pointerEventData.hovered)
@@ -24,7 +32,6 @@ namespace RPG.EventSystems
                     }
                 }
             }
-
             hovered = default(K);
             return false;
         }
@@ -33,17 +40,17 @@ namespace RPG.EventSystems
             where T : BaseRaycaster
         {
             hovered = null;
+
             if (m_PointerData.TryGetValue(mouseID, out PointerEventData pointerEventData))
             {
                 BaseRaycaster module = pointerEventData.pointerCurrentRaycast.module;
-                if (module &&
+                if (module != null &&
                     module is T)
                 {
                     hovered = pointerEventData.hovered;
                     return true;
                 }
             }
-
             return false;
         }
     }

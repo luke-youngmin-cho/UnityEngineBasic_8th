@@ -36,15 +36,26 @@ namespace RPG.UI
                 uisShown.Last.Value == ui)
                 return;
 
-            int sortingOrder = uis.Count > 1 ? (uisShown.Last?.Value.sortingOrder ?? 0) : 0;
+            int sortingOrder = 0;
+            if (uisShown.Last != null)
+            {
+                uisShown.Last.Value.inputActionEnalbed = false;
+                sortingOrder = uisShown.Last.Value.sortingOrder;
+            }
             uisShown.Remove(ui);
             uisShown.AddLast(ui);
+            ui.inputActionEnalbed = true;
             ui.sortingOrder = sortingOrder;
         }
 
         public void Pop(IUI ui)
         {
             uisShown.Remove(ui);
+
+            if (uisShown.Count > 0)
+            {
+                uisShown.Last.Value.inputActionEnalbed = true;
+            }
         }
 
         public void HideLast()

@@ -64,6 +64,7 @@ namespace RPG.Data
                 System.IO.File.WriteAllText(dataPath, JsonUtility.ToJson(data));
             }
 
+            data.Init();
             return data;
         }
 

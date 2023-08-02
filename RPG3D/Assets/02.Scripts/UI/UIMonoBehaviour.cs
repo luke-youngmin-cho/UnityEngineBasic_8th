@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RPG.EventSystems;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,12 +13,14 @@ namespace RPG.UI
     [RequireComponent(typeof(Canvas))]
     public class UIMonoBehaviour : MonoBehaviour, IUI
     {
+        public bool inputActionEnalbed { get; set; }
         protected UIManager manager;
         protected Canvas canvas;
         [Header("Options")]
         [SerializeField] private bool hideWhenClickOutside;
+        protected CustomInputModule inputModule;
 
-        public int sortingOrder 
+        public int sortingOrder
         {
             get => canvas.sortingOrder;
             set => canvas.sortingOrder = value;
@@ -68,7 +71,7 @@ namespace RPG.UI
                 GameObject panel = new GameObject();
                 Image image = panel.AddComponent<Image>();
                 image.color = new Color(0.0f, 0.0f, 0.0f, 0.5f);
-                               
+
                 panel.transform.SetParent(transform);
                 panel.transform.SetAsFirstSibling();
 
@@ -88,5 +91,15 @@ namespace RPG.UI
             }
         }
 
+        protected virtual void Start()
+        {
+            inputModule = CustomInputModule.main;
+        }
+
+        protected virtual void Update()
+        {
+            if (inputActionEnalbed)
+                InputAction();
+        }
     }
 }

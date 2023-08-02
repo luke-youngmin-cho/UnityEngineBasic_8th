@@ -79,7 +79,15 @@ namespace RPG.Data
             equipmentSlotDatum = new ObservableCollection<EquipmentSlotData>(40);
             spendSlotDatum = new ObservableCollection<SpendSlotData>(40);
             etcSlotDatum = new ObservableCollection<ETCSlotData>(40);
+            
             return this;
+        }
+
+        public void Init()
+        {
+            equipmentSlotDatum.onCollectionChanged += () => DataModelManager.instance.Save<InventoryData>();
+            spendSlotDatum.onCollectionChanged += () => DataModelManager.instance.Save<InventoryData>();
+            etcSlotDatum.onCollectionChanged += () => DataModelManager.instance.Save<InventoryData>();
         }
     }
 }
