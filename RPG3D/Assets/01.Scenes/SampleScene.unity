@@ -13731,6 +13731,7 @@ GameObject:
   - component: {fileID: 8806807114874131629}
   - component: {fileID: 8891668065676884389}
   - component: {fileID: 8908651082717457661}
+  - component: {fileID: 8908651082717457662}
   m_Layer: 0
   m_Name: Akaza
   m_TagString: Untagged
@@ -18360,6 +18361,18 @@ MonoBehaviour:
   collisionColor: {r: 1, g: 0, b: 0, a: 1}
   groundCollisionColor: {r: 0, g: 1, b: 0, a: 1}
   angleLimitDrawScale: 0.05
+--- !u!114 &8908651082717457662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8805878703320308525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39b24e2a603dcaa4798667c4391901d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8908653479605491143
 MonoBehaviour:
   m_ObjectHideFlags: 0

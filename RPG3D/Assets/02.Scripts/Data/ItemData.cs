@@ -6,6 +6,7 @@ namespace RPG.Data
 {
     public abstract class ItemData : ScriptableObject
     {
+        public ItemType type;
         public int id;
         public int numMax;
         public Sprite icon;
