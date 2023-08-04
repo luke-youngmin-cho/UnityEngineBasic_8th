@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e829d7a8d4b2848b239d2b40e16b25, type: 3}
   m_Name: MagicSword(Ice)
   m_EditorClassIdentifier: 
+  type: 1
   id: 1001
   numMax: 1
   icon: {fileID: 21300000, guid: 3b9954228e5b7ac41ab2d6b000463c76, type: 3}
   description: This sword is so cold.
   model: {fileID: 1777591198242490, guid: 3329101817c67e24fb70ba97b6168054, type: 3}
+  droppedRenderLocation: {x: 0, y: 0.5, z: -0.5}
+  droppedRenderRotation: {x: 45, y: 0, z: 0}
+  droppedRenderScale: {x: 0.5, y: 0.5, z: 0.5}

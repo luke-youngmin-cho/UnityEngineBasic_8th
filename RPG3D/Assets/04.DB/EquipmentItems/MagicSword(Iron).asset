@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e829d7a8d4b2848b239d2b40e16b25, type: 3}
   m_Name: MagicSword(Iron)
   m_EditorClassIdentifier: 
+  type: 1
   id: 1002
   numMax: 1
   icon: {fileID: 21300000, guid: f6d2e80783a625246ad1f8ec4b4b0c4e, type: 3}
   description: This sword is so scary.
   model: {fileID: 1014989259798498, guid: 8fc40ebf5a41b30428929f5ba3697759, type: 3}
+  droppedRenderLocation: {x: 0, y: 0.5, z: -0.5}
+  droppedRenderRotation: {x: 45, y: 0, z: 0}
+  droppedRenderScale: {x: 0.5, y: 0.5, z: 0.5}

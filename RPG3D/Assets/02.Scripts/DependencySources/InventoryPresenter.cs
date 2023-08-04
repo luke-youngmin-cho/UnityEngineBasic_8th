@@ -299,7 +299,7 @@ namespace RPG.DependencySources
 
                 // Battle field ¿¡ Item »ý¼º
                 if (ControllerManager.instance.TryGet(out PlayerController player))
-                    ItemDropped.Create(itemID, num, player.transform.position);
+                    ItemDropped.Create(itemID, num, player.transform.position + Vector3.up);
             }
 
             public bool TryExecute(ItemType type, int slotIndex, int num)
