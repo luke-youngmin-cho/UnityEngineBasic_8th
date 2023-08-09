@@ -15108,7 +15108,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8805878703320308525}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.488, z: 0}
+  m_LocalPosition: {x: 0.41, y: 0.488, z: -0.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -17610,7 +17610,7 @@ Animator:
   m_GameObject: {fileID: 8805878703320308525}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: c4154c0eb934e754fbbdbc45ebd51b26, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e1a7bf652091f54fb0c6d4f2d26c2ee, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -19036,6 +19036,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39b24e2a603dcaa4798667c4391901d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _groundMask:
+    serializedVersion: 2
+    m_Bits: 0
+  _groundCastMaxDistance: 0
 --- !u!136 &8908651082717457663
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -19064,7 +19068,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &8908653479605491143
 MonoBehaviour:
