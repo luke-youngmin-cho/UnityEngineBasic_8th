@@ -14393,6 +14393,7 @@ GameObject:
   - component: {fileID: 8891668065676884389}
   - component: {fileID: 8908651082717457661}
   - component: {fileID: 8908651082717457662}
+  - component: {fileID: 8908651082717457665}
   - component: {fileID: 8908651082717457664}
   - component: {fileID: 8908651082717457663}
   m_Layer: 10
@@ -17582,7 +17583,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!95 &8891261074618046095
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -17599,10 +17600,11 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!95 &8891668065676884389
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -17619,7 +17621,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &8908142865565799773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19036,10 +19039,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39b24e2a603dcaa4798667c4391901d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundMask:
-    serializedVersion: 2
-    m_Bits: 0
-  _groundCastMaxDistance: 0
 --- !u!136 &8908651082717457663
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -19070,6 +19069,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &8908651082717457665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8805878703320308525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6449ada72bc25534486980586a5dee69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  move: {x: 0, y: 0, z: 0}
+  moveGain: 0
+  _groundMask:
+    serializedVersion: 2
+    m_Bits: 256
+  _groundCastMaxDistance: 0.3
 --- !u!114 &8908653479605491143
 MonoBehaviour:
   m_ObjectHideFlags: 0
