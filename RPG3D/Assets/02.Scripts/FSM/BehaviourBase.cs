@@ -10,7 +10,7 @@ namespace RPG.FSM
         protected Transform transform;
         protected Rigidbody rigidbody;
 
-        public void Initialize(MachineManager manager)
+        public virtual void Initialize(MachineManager manager)
         {
             this.manager = manager;
             transform = manager.transform;

@@ -86,6 +86,11 @@ namespace RPG.FSM
             _animator.SetFloat("horizontal", horizontal * moveGain);
             _animator.SetFloat("vertical", vertical * moveGain);
 
+            if (Input.GetMouseButtonDown(0))
+            {
+                ChangeState(StateType.Attack);
+            }
+
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (isGrounded)
@@ -114,5 +119,16 @@ namespace RPG.FSM
                 _inertia = Vector3.Lerp(_inertia, Vector3.zero, _rigidbody.drag);
             }
         }
+
+
+        #region Animation event binded
+
+        private void FootL() { }
+        private void FootR() { }
+        private void Land() { }
+
+        private void Hit() { }
+        #endregion
+
     }
 }
