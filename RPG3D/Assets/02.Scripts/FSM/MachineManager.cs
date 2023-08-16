@@ -42,6 +42,8 @@ namespace RPG.FSM
         private Vector3 _inertia;
         private Rigidbody _rigidbody;
 
+        public float horizontal;
+        public float vertical;
 
         public bool ChangeState(Animator animator, StateType newState)
         {
@@ -79,32 +81,9 @@ namespace RPG.FSM
 
         private void Update()
         {
-            float horizontal = Input.GetAxis("Horizontal");
-            float vertical = Input.GetAxis("Vertical");
             move = new Vector3(horizontal, 0.0f, vertical).normalized;
-            moveGain = Input.GetKey(KeyCode.LeftShift) ? 2.0f : 1.0f;
-            _animator.SetFloat("horizontal", horizontal * moveGain);
-            _animator.SetFloat("vertical", vertical * moveGain);
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                ChangeState(StateType.Attack);
-            }
-
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                if (isGrounded)
-                {
-                    if (hasJumped == false)
-                        ChangeState(StateType.Jump);
-                }
-                else
-                {
-                    if (hasSomersaulted == false)
-                        ChangeState(StateType.Somersault);
-                }
-                
-            }
+            _animator.SetFloat("horizontal", Vector3.Dot(move * moveGain, transform.right));
+            _animator.SetFloat("vertical", Vector3.Dot(move * moveGain, transform.forward));
         }
 
         private void FixedUpdate()
@@ -112,6 +91,7 @@ namespace RPG.FSM
             if (isGrounded)
             {
                 _inertia = move * moveGain;
+                transform.position += move * moveGain * Time.fixedDeltaTime;
             }
             else
             {
