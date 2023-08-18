@@ -10,7 +10,8 @@ namespace RPG.AISystems.BehaviourTree
         public Node child { get; set; }
         private Func<Result, Result> _decorate;
 
-        public Decorator(Func<Result, Result> decorate)
+        public Decorator(BehaviourTreeBuilder tree, BlackBoard blackBoard, Func<Result, Result> decorate) 
+            : base(tree, blackBoard)
         {
             _decorate = decorate;
         }

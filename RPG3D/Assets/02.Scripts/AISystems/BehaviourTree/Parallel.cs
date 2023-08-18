@@ -14,7 +14,8 @@ namespace RPG.AISystems.BehaviourTree
         }
         private Policy _successPolicy;
 
-        public Parallel(Policy successPolicy)
+        public Parallel(BehaviourTreeBuilder tree, BlackBoard blackBoard, Policy successPolicy)
+            : base(tree, blackBoard)
         {
             _successPolicy = successPolicy;
         }

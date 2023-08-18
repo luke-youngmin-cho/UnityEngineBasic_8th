@@ -10,7 +10,8 @@ namespace RPG.AISystems.BehaviourTree
         public Node child { get; set; }
         private Func<bool> _condition;
 
-        public Condition(Func<bool> condition)
+        public Condition(BehaviourTreeBuilder tree, BlackBoard blackBoard, Func<bool> condition) 
+            : base(tree, blackBoard)
         {
             _condition = condition;
         }

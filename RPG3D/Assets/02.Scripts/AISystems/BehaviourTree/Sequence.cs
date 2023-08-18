@@ -6,6 +6,10 @@ namespace RPG.AISystems.BehaviourTree
 {
     public class Sequence : Composite
     {
+        public Sequence(BehaviourTreeBuilder tree, BlackBoard blackBoard) : base(tree, blackBoard)
+        {
+        }
+
         public override Result Invoke()
         {
             Result result = Result.Success;

@@ -6,6 +6,10 @@ namespace RPG.AISystems.BehaviourTree
 {
     public class Selector : Composite
     {
+        public Selector(BehaviourTreeBuilder tree, BlackBoard blackBoard) : base(tree, blackBoard)
+        {
+        }
+
         public override Result Invoke()
         {
             Result result = Result.Failure;

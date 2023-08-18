@@ -6586,11 +6586,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7633029027912832048}
   - component: {fileID: 7633029027903290242}
-  - component: {fileID: 7633029027912832053}
   - component: {fileID: 7633029027912832051}
   - component: {fileID: 7633029027912832049}
   - component: {fileID: 7633029027912832057}
   - component: {fileID: 7633029027912832055}
+  - component: {fileID: 7633029027912832059}
   m_Layer: 15
   m_Name: Enemy_Goblin
   m_TagString: Untagged
@@ -7346,8 +7346,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7633029027912665104}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.01, y: 0.5, z: 11.61}
+  m_LocalRotation: {x: -0, y: 0.993053, z: -0, w: 0.11766801}
+  m_LocalPosition: {x: -5.8, y: 0.5, z: 16.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7355,7 +7355,7 @@ Transform:
   - {fileID: 7633029027912832054}
   - {fileID: 7633029027912832052}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 166.485, z: 0}
 --- !u!136 &7633029027912832049
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7439,29 +7439,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7633029027912832048}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7633029027912832053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7633029027912665104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6449ada72bc25534486980586a5dee69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
-  hasJumped: 0
-  hasSomersaulted: 0
-  move: {x: 0, y: 0, z: 0}
-  moveGain: 0
-  _groundMask:
-    serializedVersion: 2
-    m_Bits: 256
-  _groundCastMaxDistance: 0.3
-  horizontal: 0
-  vertical: 0
 --- !u!4 &7633029027912832054
 Transform:
   m_ObjectHideFlags: 0
@@ -7489,7 +7466,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89cee03a7d489804eac9d6efbec949c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 8806807114874131629}
 --- !u!4 &7633029027912832056
 Transform:
   m_ObjectHideFlags: 0
@@ -7542,6 +7518,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7633029027912832062}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7633029027912832059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7633029027912665104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa76554059b5bea4f949590d6b9cdb1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  hasJumped: 0
+  hasSomersaulted: 0
+  move: {x: 0, y: 0, z: 0}
+  moveGain: 0
+  _groundMask:
+    serializedVersion: 2
+    m_Bits: 256
+  _groundCastMaxDistance: 0.3
+  horizontal: 0
+  vertical: 0
+  _seek_radius: 15
+  _seek_angle: 140
+  _seek_deltaAngle: 2
+  _seek_targetMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  _seek_offset: {x: 0, y: 0.5, z: 0}
+  _attack_range: 1
 --- !u!4 &7633029027912832062
 Transform:
   m_ObjectHideFlags: 0
