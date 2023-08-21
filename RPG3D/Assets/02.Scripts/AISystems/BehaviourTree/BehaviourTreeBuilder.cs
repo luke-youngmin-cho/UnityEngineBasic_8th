@@ -103,6 +103,32 @@ namespace RPG.AISystems.BehaviourTree
 
             return this;
         }
+
+        public BehaviourTreeBuilder Patrol(float range)
+        {
+            Node node = new Patrol(range, this, blackBoard);
+            AttachAsChild(_current, node);
+
+            if (_compositeStack.Count > 0)
+                _current = _compositeStack.Peek();
+            else
+                _current = null;
+
+            return this;
+        }
+        public BehaviourTreeBuilder RandomSleep(float minTime, float maxTime)
+        {
+            Node node = new RandomSleep(minTime, maxTime, this, blackBoard);
+            AttachAsChild(_current, node);
+
+            if (_compositeStack.Count > 0)
+                _current = _compositeStack.Peek();
+            else
+                _current = null;
+
+            return this;
+        }
+
         public BehaviourTreeBuilder Seek(float radius, float angle, float deltaAngle, LayerMask targetMask, Vector3 offset)
         {
             Node node = new Seek(this, blackBoard, radius, angle, deltaAngle, targetMask, offset);
