@@ -43,6 +43,14 @@ namespace RPG.GameElements.Stats
         public IEnumerator<StatModifier> modifiers => _modifiers.GetEnumerator();
         private List<StatModifier> _modifiers;
 
+        public Stat(StatType type, float value)
+        {
+            this.type = type;
+            this.value = value;
+            this.valueModified = value;
+        }
+
+
         public void AddModifer(StatModifier modifier)
         {
             _modifiers.Add(modifier);
