@@ -11,6 +11,7 @@ namespace RPG.UI
     {
         [HideInInspector] public ItemType itemType;
         [HideInInspector] public int slotIndex;
+        [HideInInspector] public int itemID;
         [SerializeField] private Image _icon;
         [SerializeField] private TMP_Text _num;
 
@@ -26,6 +27,7 @@ namespace RPG.UI
                 _icon.sprite = null;
                 _num.text = string.Empty;
             }
+            this.itemID = itemID;
         }
     }
 }

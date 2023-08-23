@@ -37,7 +37,7 @@ namespace RPG.FSM
         public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             base.OnStateUpdate(animator, stateInfo, layerIndex);
-            Debug.Log($"update ... {stateInfo.normalizedTime}");
+            //Debug.Log($"update ... {stateInfo.normalizedTime}");
             if (stateInfo.normalizedTime >= 1.0f)
             {
                 OnStateFinished(animator);

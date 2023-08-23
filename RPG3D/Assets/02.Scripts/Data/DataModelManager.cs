@@ -10,6 +10,7 @@ namespace RPG.Data
     {
         None,
         Inventory,
+        ItemsEquipped,
     }
 
     // Repository pattern 
@@ -81,6 +82,7 @@ namespace RPG.Data
             _dataModelsByCategory = new Dictionary<DataCategory, IDataModel>();
 
             Register<InventoryData>(DataCategory.Inventory);
+            Register<ItemsEquippedData>(DataCategory.ItemsEquipped);
         }
     }
 }

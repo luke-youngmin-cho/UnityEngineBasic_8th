@@ -11,7 +11,8 @@ namespace RPG.GameElements
         Head,
         Top,
         Bottom,
-        Feet,
+        RightFoot,
+        LeftFoot,
         RightHand,
         LeftHand,
         TwoHand

@@ -15,6 +15,7 @@ namespace RPG.Data
 
             public BodyPart part;
             public int itemID;
+            public int enhanceLevel;
         }
         public ObservableCollection<ItemEquippedSlotData> slotDatum;
 

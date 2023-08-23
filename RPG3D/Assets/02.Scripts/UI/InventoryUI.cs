@@ -20,7 +20,7 @@ namespace RPG.UI
         private List<InventorySlot> _spendSlots = new List<InventorySlot>();
         private List<InventorySlot> _etcSlots = new List<InventorySlot>() ;
         [SerializeField] private CustomInputModule _inputModule;
-
+        [SerializeField] private Button _close;
 
         public override void InputAction()
         {
@@ -48,7 +48,14 @@ namespace RPG.UI
                         ItemDataRepository.instance.items.TryGetValue(slotData.itemID, out ItemData itemData) &&
                         itemData is UsableItemData)
                     {
-                        ((UsableItemData)itemData).Use();
+                        if (itemData is EquipmentItemData)
+                        {
+                            ((EquipmentItemData)itemData).Use(slot);
+                        }
+                        else
+                        {
+                            ((UsableItemData)itemData).Use();
+                        }
                         Debug.Log($"Used item in slot {slot.slotIndex}");
                     }
                 }
@@ -108,6 +115,8 @@ namespace RPG.UI
             {
                 _etcSlots[slotIndex].Refresh(itemPair.itemID, itemPair.itemNum);
             };
+
+            _close.onClick.AddListener(Hide);
         }
     }
 }
