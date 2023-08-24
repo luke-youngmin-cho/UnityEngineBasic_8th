@@ -42,6 +42,26 @@ namespace RPG.Collections
             items = new List<T>(copy);
         }
 
+        public T Find(Predicate<T> match)
+        {
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (match(items[i]))
+                    return items[i];
+            }
+            return default;
+        }
+
+        public int FindIndex(Predicate<T> match)
+        {
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (match(items[i]))
+                    return i;
+            }
+            return -1;
+        }
+
         public void Change(int index, T item)
         {
             items[index] = item;

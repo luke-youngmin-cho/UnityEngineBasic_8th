@@ -35,6 +35,10 @@ namespace RPG.UI
                 image.sprite = ItemDataRepository.instance.equipments[itemID].icon;
                 image.color = new Color(1f, 1f, 1f, 0.7f);
             }
+            else
+            {
+                image.color = Color.clear;
+            }
         }
     }
 }

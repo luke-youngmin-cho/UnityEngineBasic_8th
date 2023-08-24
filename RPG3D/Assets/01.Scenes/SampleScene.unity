@@ -2103,7 +2103,6 @@ MonoBehaviour:
   _etcContent: {fileID: 786449886}
   _slotPrefab: {fileID: 8552619248327787039, guid: 0b421a70120a5f144a7a5599c85383cc,
     type: 3}
-  _inputModule: {fileID: 505413271}
   _close: {fileID: 1262742191}
 --- !u!1 &682855496
 GameObject:
@@ -21895,6 +21894,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodyParts:
+  - Key: 0
+    Value: {fileID: 0}
   - Key: 1
     Value: {fileID: 289510498}
   - Key: 2

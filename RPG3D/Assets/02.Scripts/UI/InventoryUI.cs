@@ -19,7 +19,6 @@ namespace RPG.UI
         private List<InventorySlot> _equipmentSlots = new List<InventorySlot>();
         private List<InventorySlot> _spendSlots = new List<InventorySlot>();
         private List<InventorySlot> _etcSlots = new List<InventorySlot>() ;
-        [SerializeField] private CustomInputModule _inputModule;
         [SerializeField] private Button _close;
 
         public override void InputAction()
@@ -29,7 +28,7 @@ namespace RPG.UI
 
             if (Input.GetMouseButtonDown(0))
             {
-                if (_inputModule.TryGetHovered<GraphicRaycaster, InventorySlot>(out slot))
+                if (inputModule.TryGetHovered<GraphicRaycaster, InventorySlot>(out slot))
                 {
                     InventoryData.ItemSlotData slotData = presenter.inventorySource.GetSlotData(slot.itemType, slot.slotIndex);
                     if (slotData.itemNum > 0 &&
@@ -41,7 +40,7 @@ namespace RPG.UI
             }
             else if (Input.GetMouseButtonDown(1))
             {
-                if (_inputModule.TryGetHovered<GraphicRaycaster, InventorySlot>(out slot))
+                if (inputModule.TryGetHovered<GraphicRaycaster, InventorySlot>(out slot))
                 {
                     InventoryData.ItemSlotData slotData = presenter.inventorySource.GetSlotData(slot.itemType, slot.slotIndex);
                     if (slotData.isEmpty == false &&
