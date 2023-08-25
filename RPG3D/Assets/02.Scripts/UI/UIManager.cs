@@ -40,7 +40,7 @@ namespace RPG.UI
             if (uisShown.Last != null)
             {
                 uisShown.Last.Value.inputActionEnalbed = false;
-                sortingOrder = uisShown.Last.Value.sortingOrder;
+                sortingOrder = uisShown.Last.Value.sortingOrder + 1;
             }
             uisShown.Remove(ui);
             uisShown.AddLast(ui);

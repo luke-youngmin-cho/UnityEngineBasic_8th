@@ -57,7 +57,18 @@ namespace RPG.UI
 
         public virtual void InputAction()
         {
-
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+            {
+                if (inputModule.TryGetHovered<GraphicRaycaster, CanvasRenderer>(out CanvasRenderer canvasRenderer))
+                {
+                    if (canvasRenderer.transform.root.TryGetComponent(out UIMonoBehaviour ui) &&
+                        ui != this)
+                    {
+                        UIManager.instance.Push(ui);
+                        ui.InputAction();
+                    }
+                }
+            }
         }
 
         protected virtual void Awake()

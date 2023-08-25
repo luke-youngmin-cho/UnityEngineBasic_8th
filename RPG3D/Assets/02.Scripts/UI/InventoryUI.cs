@@ -21,6 +21,22 @@ namespace RPG.UI
         private List<InventorySlot> _etcSlots = new List<InventorySlot>() ;
         [SerializeField] private Button _close;
 
+        public InventorySlot GetSlot(ItemType itemType, int slotIndex)
+        {
+            switch (itemType)
+            {
+                case ItemType.Equipment:
+                    return _equipmentSlots[slotIndex];
+                case ItemType.Spend:
+                    return _spendSlots[slotIndex];
+                case ItemType.ETC:
+                    return _etcSlots[slotIndex];
+                default:
+                    throw new System.Exception($"[InventoryUI] : Failed to get slot. wrong item type {itemType}.");
+            }
+        }
+
+
         public override void InputAction()
         {
             base.InputAction();
