@@ -81,7 +81,7 @@ namespace RPG.FSM
 
         protected virtual void Update()
         {
-            move = new Vector3(horizontal, 0.0f, vertical).normalized;
+            move = Quaternion.LookRotation(transform.forward, transform.up) * new Vector3(horizontal, 0.0f, vertical).normalized;
             _animator.SetFloat("horizontal", Vector3.Dot(move * moveGain, transform.right));
             _animator.SetFloat("vertical", Vector3.Dot(move * moveGain, transform.forward));
         }
