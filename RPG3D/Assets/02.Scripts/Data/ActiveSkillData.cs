@@ -1,3 +1,4 @@
+using RPG.FSM;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ namespace RPG.Data
     [CreateAssetMenu(fileName = "new ActiveSkillData", menuName = "RPG/Data/Create ActiveSkillData")]
     public class ActiveSkillData : SkillData
     {
+        public StateType state;
         public float coolTime;
         public int comboStackMax;
         public List<float> comboDelayRatioList;

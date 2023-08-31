@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6bb37c302d50b048894994c657109d5, type: 3}
-  m_Name: TwoHandSwordAttack
+  m_Name: UnamredAttack
   m_EditorClassIdentifier: 
-  id: {fileID: 11400000, guid: 0d6333fb838b2ea4484416df18860f5d, type: 2}
-  description: Basic Attack with TwoHandSword.
+  id: {fileID: 11400000, guid: 69fbd5b1bb8acb74d9a9cea6b923e19b, type: 2}
+  description: Basic Attack.
   icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   state: 20
-  coolTime: 5
-  comboStackMax: 4
+  coolTime: 1
+  comboStackMax: 5
   comboDelayRatioList:
+  - 0.3
   - 0.3
   - 0.3
   - 0.3

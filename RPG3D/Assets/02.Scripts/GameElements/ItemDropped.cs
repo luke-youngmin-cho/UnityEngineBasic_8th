@@ -151,7 +151,6 @@ public class ItemDropped : MonoBehaviour
             if (speed > 0.0f)
                 speed -= drag * Time.deltaTime;
 
-            Debug.Log($"{transform.position},  {dir}");
             yield return null;
         }
     }

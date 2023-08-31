@@ -1,3 +1,4 @@
+using RPG.Data;
 using RPG.FSM;
 using RPG.GameElements.Stats;
 using System.Collections.Generic;
@@ -10,12 +11,13 @@ namespace RPG.Controllers
         [SerializeField] private List<UKeyValuePair<StatType, float>> _statList;
         public Dictionary<StatType, Stat> stats;
 
-        private MachineManager _machineManager;
+        public MachineManager machineManager;
+        public SkillID attackID;
 
         override protected void Awake()
         {
             base.Awake();
-            _machineManager = GetComponent<MachineManager>();
+            machineManager = GetComponent<MachineManager>();
             stats = new Dictionary<StatType, Stat>();
             foreach (var statPair in _statList)
             {
@@ -25,26 +27,26 @@ namespace RPG.Controllers
 
         private void Update()
         {
-            _machineManager.horizontal = Input.GetAxis("Horizontal");
-            _machineManager.vertical = Input.GetAxis("Vertical");
-            _machineManager.moveGain = Input.GetKey(KeyCode.LeftShift) ? 6.0f : 2.0f;
+            machineManager.horizontal = Input.GetAxis("Horizontal");
+            machineManager.vertical = Input.GetAxis("Vertical");
+            machineManager.moveGain = Input.GetKey(KeyCode.LeftShift) ? 6.0f : 2.0f;
 
             if (Input.GetMouseButtonDown(0))
             {
-                _machineManager.ChangeState(StateType.Attack);
+                machineManager.UseSkill(attackID.value);
             }
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                if (_machineManager.isGrounded)
+                if (machineManager.isGrounded)
                 {
-                    if (_machineManager.hasJumped == false)
-                        _machineManager.ChangeState(StateType.Jump);
+                    if (machineManager.hasJumped == false)
+                        machineManager.ChangeState(StateType.Jump);
                 }
                 else
                 {
-                    if (_machineManager.hasSomersaulted == false)
-                        _machineManager.ChangeState(StateType.Somersault);
+                    if (machineManager.hasSomersaulted == false)
+                        machineManager.ChangeState(StateType.Somersault);
                 }
             }
         }
