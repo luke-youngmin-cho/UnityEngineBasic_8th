@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using RPG.Controllers;
 
-public class VCam_FollowingPlayer : MonoBehaviour
+public class VCam_FollowingPlayer : ControllerBase
 {
     private CinemachineVirtualCamera _vCam;
     [SerializeField] private float _rotateSpeedY;
@@ -18,8 +19,9 @@ public class VCam_FollowingPlayer : MonoBehaviour
     private Transform _followTarget;
     private Transform _followTargetRoot;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _vCam = GetComponent<CinemachineVirtualCamera>();
         _followTarget = _vCam.Follow;
         _followTargetRoot = _followTarget.root;
@@ -27,6 +29,9 @@ public class VCam_FollowingPlayer : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (controlEnabled == false)
+            return;
+
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
 

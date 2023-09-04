@@ -1,9 +1,11 @@
-﻿using RPG.Singletons;
+﻿using RPG.Controllers;
+using RPG.Singletons;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace RPG.UI
 {
@@ -46,6 +48,16 @@ namespace RPG.UI
             uisShown.AddLast(ui);
             ui.inputActionEnalbed = true;
             ui.sortingOrder = sortingOrder;
+
+            if (uisShown.Count == 1 &&
+                ControllerManager.instance.TryGet(out PlayerController playerController) &&
+                ControllerManager.instance.TryGet(out VCam_FollowingPlayer playerFollowingCam))
+            {
+                playerController.controlEnabled = false;
+                playerFollowingCam.controlEnabled = false;
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.Confined;
+            }
         }
 
         public void Pop(IUI ui)
@@ -55,6 +67,16 @@ namespace RPG.UI
             if (uisShown.Count > 0)
             {
                 uisShown.Last.Value.inputActionEnalbed = true;
+            }
+
+            if (uisShown.Count == 0 &&
+                ControllerManager.instance.TryGet(out PlayerController playerController) &&
+                ControllerManager.instance.TryGet(out VCam_FollowingPlayer playerFollowingCam))
+            {
+                playerController.controlEnabled = true;
+                playerFollowingCam.controlEnabled = true;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
             }
         }
 

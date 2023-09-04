@@ -7,12 +7,14 @@ namespace RPG.GameElements.Stats
 {
     public enum StatType
     {
+        None,
         HPMax,
         MPMax,
         STR,
         DEF,
     }
 
+    [Serializable]
     public class Stat
     {
         public StatType type;

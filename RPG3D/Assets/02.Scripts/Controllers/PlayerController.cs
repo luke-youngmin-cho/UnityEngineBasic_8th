@@ -25,11 +25,26 @@ namespace RPG.Controllers
             }
         }
 
+        private void Start()
+        {
+            if (ControllerManager.instance.TryGet(out PlayerController playerController) &&
+                ControllerManager.instance.TryGet(out VCam_FollowingPlayer playerFollowingCam))
+            {
+                playerController.controlEnabled = true;
+                playerFollowingCam.controlEnabled = true;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+        }
+
         private void Update()
         {
             machineManager.horizontal = Input.GetAxis("Horizontal");
             machineManager.vertical = Input.GetAxis("Vertical");
             machineManager.moveGain = Input.GetKey(KeyCode.LeftShift) ? 6.0f : 2.0f;
+
+            if (controlEnabled == false)
+                return;
 
             if (Input.GetMouseButtonDown(0))
             {

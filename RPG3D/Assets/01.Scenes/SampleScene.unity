@@ -848,7 +848,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: -9.346276e-16, y: 0.41170752, z: 4.2223912e-16, w: 0.91131604}
+  m_LocalRotation: {x: 9.346278e-16, y: 0.41170752, z: -4.2223915e-16, w: 0.91131604}
   m_LocalPosition: {x: 44.276085, y: 3.5020752, z: 41.90006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1536,7 +1536,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 766822572}
   serializedVersion: 2
-  m_LocalRotation: {x: -9.346276e-16, y: 0.41170752, z: 4.2223912e-16, w: 0.91131604}
+  m_LocalRotation: {x: 9.346278e-16, y: 0.41170752, z: -4.2223915e-16, w: 0.91131604}
   m_LocalPosition: {x: 44.276085, y: 3.5020752, z: 41.90006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4634,6 +4634,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa76554059b5bea4f949590d6b9cdb1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats:
+    _list: []
   state: 0
   hasJumped: 0
   hasSomersaulted: 0
@@ -18439,17 +18441,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39b24e2a603dcaa4798667c4391901d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _statList:
-  - Key: 0
-    Value: 500
-  - Key: 1
-    Value: 100
-  - Key: 2
-    Value: 10
-  - Key: 3
-    Value: 10
+  _statList: []
   machineManager: {fileID: 0}
-  attackID: {fileID: 11400000, guid: 0d6333fb838b2ea4484416df18860f5d, type: 2}
+  attackID: {fileID: 0}
 --- !u!136 &8908651082717457663
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -18512,11 +18506,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6449ada72bc25534486980586a5dee69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats:
+    _list:
+    - Key: 1
+      Value:
+        type: 1
+    - Key: 2
+      Value:
+        type: 2
+    - Key: 3
+      Value:
+        type: 3
+    - Key: 4
+      Value:
+        type: 4
   state: 0
   hasJumped: 0
   hasSomersaulted: 0
   move: {x: 0, y: 0, z: 0}
-  moveGain: 0
+  moveGain: 1
   _groundMask:
     serializedVersion: 2
     m_Bits: 256
